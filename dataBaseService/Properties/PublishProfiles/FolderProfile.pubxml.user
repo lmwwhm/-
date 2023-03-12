@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>bin\app.publish\</_PublishTargetUrl>
+    <History>True|2022-11-14T08:59:00.6880341Z;True|2022-11-14T11:53:42.3926682+08:00;True|2022-11-14T10:39:59.4991857+08:00;True|2022-11-14T10:38:47.2023919+08:00;True|2022-11-14T10:24:44.6056920+08:00;True|2022-11-14T10:20:55.5771251+08:00;True|2022-11-14T00:12:18.6885684+08:00;True|2022-11-13T21:23:02.6576812+08:00;True|2022-11-13T21:16:52.7259337+08:00;True|2022-11-13T21:13:04.0979462+08:00;True|2022-11-13T21:08:49.2991427+08:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/BouncyCastle.Crypto.dll">
+      <publishTime>02/01/2019 03:53:56</publishTime>
+    </File>
+    <File Include="bin/CV.Base.dll">
+      <publishTime>05/26/2022 16:16:56</publishTime>
+    </File>
+    <File Include="bin/dataBaseService.dll">
+      <publishTime>11/14/2022 16:59:00</publishTime>
+    </File>
+    <File Include="bin/dataBaseService.pdb">
+      <publishTime>11/14/2022 16:59:00</publishTime>
+    </File>
+    <File Include="bin/Google.Protobuf.dll">
+      <publishTime>11/13/2020 23:09:34</publishTime>
+    </File>
+    <File Include="bin/Google.Protobuf.pdb">
+      <publishTime>11/14/2020 04:57:28</publishTime>
+    </File>
+    <File Include="bin/K4os.Compression.LZ4.dll">
+      <publishTime>07/04/2019 06:59:30</publishTime>
+    </File>
+    <File Include="bin/K4os.Compression.LZ4.Streams.dll">
+      <publishTime>07/04/2019 06:59:32</publishTime>
+    </File>
+    <File Include="bin/K4os.Hash.xxHash.dll">
+      <publishTime>07/04/2019 04:39:02</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>12/17/2021 18:45:06</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>05/31/2021 23:26:30</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/25/2018 01:44:14</publishTime>
+    </File>
+    <File Include="bin/Renci.SshNet.dll">
+      <publishTime>10/17/2017 04:53:06</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 18:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>04/18/2019 00:24:34</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>07/19/2017 18:01:36</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>09/19/2018 03:38:10</publishTime>
+    </File>
+    <File Include="bin/Ubiety.Dns.Core.dll">
+      <publishTime>05/31/2021 23:25:08</publishTime>
+    </File>
+    <File Include="bin/Zstandard.Net.dll">
+      <publishTime>05/31/2021 23:25:08</publishTime>
+    </File>
+    <File Include="log4.config">
+      <publishTime>11/14/2022 10:16:23</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>11/07/2022 09:57:28</publishTime>
+    </File>
+    <File Include="test.html">
+      <publishTime>11/14/2022 00:28:20</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/14/2022 10:20:55</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

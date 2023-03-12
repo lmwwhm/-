@@ -1,0 +1,6 @@
+D:\learn\database\data_base\appfront\obj\Release\appfront.njsproj.AssemblyReference.cache
+D:\learn\database\data_base\appfront\obj\Release\appfront.njsproj.CoreCompileInputs.cache
+D:\learn\database\data_base\appfront\bin\Microsoft.NodejsTools.WebRole.dll
+D:\whm\desktop\Study\Database\webfront\data_base\appfront\obj\Release\appfront.njsproj.AssemblyReference.cache
+D:\whm\desktop\Study\Database\webfront\data_base\appfront\obj\Release\appfront.njsproj.CoreCompileInputs.cache
+D:\whm\desktop\Study\Database\webfront\data_base\appfront\bin\Microsoft.NodejsTools.WebRole.dll

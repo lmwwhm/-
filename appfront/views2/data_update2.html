@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        修改
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    <script src="/ueditor/ueditor.config.js"></script>
+    <script src="/ueditor/ueditor.all.min.js"></script>
+    <script src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" src="/data_update2.js"></script>
+</head>
+<body onload="da_update2()">
+
+    <div class="layui-card">
+        <form class="layui-form layui-form-pane" action="" id="update">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">基本信息</li>
+                </ul>
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <!--<form class="layui-form layui-form-pane" action="" id="add">-->
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <span class='x-red'>*</span>文件名
+                            </label>
+                            <div class="layui-inline layui-show-xs-block">
+                                <input type="text" class="layui-input" id="name" autocomplete="off" placeholder="姓名">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <span class='x-red'>*</span>内容
+                            </label>
+                            <div class="layui-input-block">
+                                <input type="text" id="内容" autocomplete="off" value="" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <span class='x-red'>*</span>权限
+                            </label>
+                            <div class="layui-input-block">
+                                <input type="text" id="权限" autocomplete="off" value="" class="layui-input" placeholder="不可修改">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <button class="layui-btn" lay-submit="" onclick="data_update2()">
+                                确定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        //根据名称获得Cookie值
+        function ReadCookie(cookieName) {
+            var theCookie = "" + document.cookie;
+            var ind = theCookie.indexOf(cookieName);
+            if (ind == -1 || cookieName == "") {
+                return ""
+            };
+            var ind1 = theCookie.indexOf(';', ind);
+            if (ind1 == -1) {
+                ind1 = theCookie.length;
+            };
+            /*读取Cookie值*/
+            return unescape(theCookie.substring(ind + cookieName.length + 1, ind1));
+        }
+        function todatetime(x) {
+            //2022 / 12 / 6 6: 31: 39
+            var list = x.split('/');
+            var ans = "";
+            ans = ans + list[0];
+            if (list[1] < 10) list[1] = "0" + list[1];
+            ans = ans + "-" + list[1];
+
+            list = list[2].split(" ");
+            if (list[0] < 10) list[0] = "0" + list[0];
+            ans = ans + "-" + list[0] + "T";
+
+            list = list[1].split(":");
+            if (list[0] < 10) {
+                list[0] = "0" + list[0];
+                ans = ans + list[0] + ":";
+                ans = ans + list[1];
+            }
+            else {
+                ans = ans + list[0] + ":";
+                ans = ans + list[1];
+            }
+
+            return ans;
+        }
+        function da_update2() {
+            var name = ReadCookie("name");
+            var 内容 = ReadCookie("内容");
+            var 权限 = ReadCookie("权限");
+            document.getElementById("name").value = name;
+            document.getElementById("内容").value = 内容;
+            document.getElementById("权限").value = 权限;
+        }
+    </script>
+</body>
+</html>

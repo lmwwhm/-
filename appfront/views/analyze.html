@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>财务状况</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8" />
+    <!--<link rel="stylesheet" href="./css/font.css">-->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery.min.js"></script>
+
+    <script src="/analyze.js"></script>
+    <style>
+        #FontScroll {
+            width: 100%;
+            height: 245px;
+            overflow: hidden;
+        }
+
+            #FontScroll ul li {
+                height: 32px;
+                width: 100%;
+                color: #ffffff;
+                line-height: 32px;
+                overflow: hidden;
+                font-size: 14px;
+            }
+
+                #FontScroll ul li i {
+                    color: red;
+                }
+
+        .layui-table td, .layui-table th {
+            min-width: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-inline layui-show-xs-block">
+            <input type="text" class="layui-input" id="year" autocomplete="off" placeholder="请输入年份,查询请双击" value="">
+            <input type="text" class="layui-input" id="month" autocomplete="off" placeholder="请输入月份,查询请双击" value="">
+        </div>
+        <div class="layui-inline layui-show-xs-block">
+            <button class="layui-btn" lay-submit="" onclick="analyze(); chart1(); chart2(); chart3()" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+        </div><br><br>
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-sm6 layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        月收入分析
+                    </div>
+                    <div class="layui-card-body ">
+                        <div id="chart1" style="width: 100%;height: 245px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm6 layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        月支出分析
+                    </div>
+                    <div class="layui-card-body ">
+                        <div id="chart2" style="width: 100%;height: 245px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm6 layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        财务状况月统计
+                    </div>
+                    <div class="layui-card-body ">
+
+                        <div id="chart3" style="width: 100%;height: 245px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-sm6 layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        财务状况年统计
+                    </div>
+                    <div class="layui-card-body ">
+
+                        <div id="chart4" style="width: 100%;height: 245px;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="./js/echarts.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.myscroll').myScroll({
+                speed: 60, //数值越大，速度越慢
+                rowHeight: 38 //li的高度
+            });
+
+        });
+
+        function getTime() {
+            var myDate = new Date();
+            var myYear = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+            var myMonth = myDate.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+            var myToday = myDate.getDate(); //获取当前日(1-31)
+            var myDay = myDate.getDay(); //获取当前星期X(0-6,0代表星期天)
+            var myHour = myDate.getHours(); //获取当前小时数(0-23)
+            var myMinute = myDate.getMinutes(); //获取当前分钟数(0-59)
+            var mySecond = myDate.getSeconds(); //获取当前秒数(0-59)
+            var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var nowTime;
+
+            nowTime = myYear + '-' + fillZero(myMonth) + '-' + fillZero(myToday) + '&nbsp;&nbsp;' + fillZero(myHour) + ':' + fillZero(myMinute) + ':' + fillZero(mySecond) + '&nbsp;&nbsp;' + week[myDay] + '&nbsp;&nbsp;';
+            //console.log(nowTime);
+            $('#time').html(nowTime);
+        };
+        function fillZero(str) {
+            var realNum;
+            if (str < 10) {
+                realNum = '0' + str;
+            } else {
+                realNum = str;
+            }
+            return realNum;
+        }
+        setInterval(getTime, 1000);
+    </script>
+    <script src="js/fontscroll.js"></script>
+</body>
+</html>

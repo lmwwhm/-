@@ -1,0 +1,911 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>appfront</Name>
+    <RootNamespace>appfront</RootNamespace>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>75da80f9-a40c-4cee-8b99-baf84bb95e03</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>server.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="public\css\bootstrap.css" />
+    <Content Include="public\css\fileinput.css" />
+    <Content Include="public\css\font.css" />
+    <Content Include="public\css\iconfont.css" />
+    <Content Include="public\css\img.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\css\index.css" />
+    <Content Include="public\css\login.css" />
+    <Content Include="public\css\main.css" />
+    <Content Include="public\fonts\iconfont.eot" />
+    <Content Include="public\fonts\iconfont.svg" />
+    <Content Include="public\fonts\iconfont.ttf" />
+    <Content Include="public\fonts\iconfont.woff" />
+    <Content Include="public\images\404.png" />
+    <Content Include="public\images\aiwrap.png" />
+    <Content Include="public\images\banner_04.jpg" />
+    <Content Include="public\images\favicon.ico" />
+    <Content Include="libman.json" />
+    <Content Include="public\images\ocean-3605547_1280.jpg" />
+    <Content Include="public\js\bootstrap.min.js" />
+    <Content Include="public\js\echarts.min.js" />
+    <Content Include="public\js\fileinput.min.js" />
+    <Content Include="public\js\fontscroll.js" />
+    <Content Include="public\js\index.js" />
+    <Content Include="public\js\jquery.js" />
+    <Content Include="public\js\jquery.min.js" />
+    <Content Include="public\js\survey.js" />
+    <Content Include="public\js\xcity.js" />
+    <Content Include="public\js\zh.js" />
+    <Content Include="public\lib\layui\css\layui.css" />
+    <Content Include="public\lib\layui\css\layui.mobile.css" />
+    <Content Include="public\lib\layui\css\modules\code.css" />
+    <Content Include="public\lib\layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="public\lib\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="public\lib\layui\css\modules\layer\default\icon.png" />
+    <Content Include="public\lib\layui\css\modules\layer\default\layer.css" />
+    <Content Include="public\lib\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="public\lib\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="public\lib\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="public\lib\layui\font\iconfont.eot" />
+    <Content Include="public\lib\layui\font\iconfont.svg" />
+    <Content Include="public\lib\layui\font\iconfont.ttf" />
+    <Content Include="public\lib\layui\font\iconfont.woff" />
+    <Content Include="public\lib\layui\images\face\0.gif" />
+    <Content Include="public\lib\layui\images\face\1.gif" />
+    <Content Include="public\lib\layui\images\face\10.gif" />
+    <Content Include="public\lib\layui\images\face\11.gif" />
+    <Content Include="public\lib\layui\images\face\12.gif" />
+    <Content Include="public\lib\layui\images\face\13.gif" />
+    <Content Include="public\lib\layui\images\face\14.gif" />
+    <Content Include="public\lib\layui\images\face\15.gif" />
+    <Content Include="public\lib\layui\images\face\16.gif" />
+    <Content Include="public\lib\layui\images\face\17.gif" />
+    <Content Include="public\lib\layui\images\face\18.gif" />
+    <Content Include="public\lib\layui\images\face\19.gif" />
+    <Content Include="public\lib\layui\images\face\2.gif" />
+    <Content Include="public\lib\layui\images\face\20.gif" />
+    <Content Include="public\lib\layui\images\face\21.gif" />
+    <Content Include="public\lib\layui\images\face\22.gif" />
+    <Content Include="public\lib\layui\images\face\23.gif" />
+    <Content Include="public\lib\layui\images\face\24.gif" />
+    <Content Include="public\lib\layui\images\face\25.gif" />
+    <Content Include="public\lib\layui\images\face\26.gif" />
+    <Content Include="public\lib\layui\images\face\27.gif" />
+    <Content Include="public\lib\layui\images\face\28.gif" />
+    <Content Include="public\lib\layui\images\face\29.gif" />
+    <Content Include="public\lib\layui\images\face\3.gif" />
+    <Content Include="public\lib\layui\images\face\30.gif" />
+    <Content Include="public\lib\layui\images\face\31.gif" />
+    <Content Include="public\lib\layui\images\face\32.gif" />
+    <Content Include="public\lib\layui\images\face\33.gif" />
+    <Content Include="public\lib\layui\images\face\34.gif" />
+    <Content Include="public\lib\layui\images\face\35.gif" />
+    <Content Include="public\lib\layui\images\face\36.gif" />
+    <Content Include="public\lib\layui\images\face\37.gif" />
+    <Content Include="public\lib\layui\images\face\38.gif" />
+    <Content Include="public\lib\layui\images\face\39.gif" />
+    <Content Include="public\lib\layui\images\face\4.gif" />
+    <Content Include="public\lib\layui\images\face\40.gif" />
+    <Content Include="public\lib\layui\images\face\41.gif" />
+    <Content Include="public\lib\layui\images\face\42.gif" />
+    <Content Include="public\lib\layui\images\face\43.gif" />
+    <Content Include="public\lib\layui\images\face\44.gif" />
+    <Content Include="public\lib\layui\images\face\45.gif" />
+    <Content Include="public\lib\layui\images\face\46.gif" />
+    <Content Include="public\lib\layui\images\face\47.gif" />
+    <Content Include="public\lib\layui\images\face\48.gif" />
+    <Content Include="public\lib\layui\images\face\49.gif" />
+    <Content Include="public\lib\layui\images\face\5.gif" />
+    <Content Include="public\lib\layui\images\face\50.gif" />
+    <Content Include="public\lib\layui\images\face\51.gif" />
+    <Content Include="public\lib\layui\images\face\52.gif" />
+    <Content Include="public\lib\layui\images\face\53.gif" />
+    <Content Include="public\lib\layui\images\face\54.gif" />
+    <Content Include="public\lib\layui\images\face\55.gif" />
+    <Content Include="public\lib\layui\images\face\56.gif" />
+    <Content Include="public\lib\layui\images\face\57.gif" />
+    <Content Include="public\lib\layui\images\face\58.gif" />
+    <Content Include="public\lib\layui\images\face\59.gif" />
+    <Content Include="public\lib\layui\images\face\6.gif" />
+    <Content Include="public\lib\layui\images\face\60.gif" />
+    <Content Include="public\lib\layui\images\face\61.gif" />
+    <Content Include="public\lib\layui\images\face\62.gif" />
+    <Content Include="public\lib\layui\images\face\63.gif" />
+    <Content Include="public\lib\layui\images\face\64.gif" />
+    <Content Include="public\lib\layui\images\face\65.gif" />
+    <Content Include="public\lib\layui\images\face\66.gif" />
+    <Content Include="public\lib\layui\images\face\67.gif" />
+    <Content Include="public\lib\layui\images\face\68.gif" />
+    <Content Include="public\lib\layui\images\face\69.gif" />
+    <Content Include="public\lib\layui\images\face\7.gif" />
+    <Content Include="public\lib\layui\images\face\70.gif" />
+    <Content Include="public\lib\layui\images\face\71.gif" />
+    <Content Include="public\lib\layui\images\face\8.gif" />
+    <Content Include="public\lib\layui\images\face\9.gif" />
+    <Content Include="public\lib\layui\layui.all.js" />
+    <Content Include="public\lib\layui\layui.js" />
+    <Content Include="public\lib\layui\lay\modules\carousel.js" />
+    <Content Include="public\lib\layui\lay\modules\code.js" />
+    <Content Include="public\lib\layui\lay\modules\colorpicker.js" />
+    <Content Include="public\lib\layui\lay\modules\element.js" />
+    <Content Include="public\lib\layui\lay\modules\flow.js" />
+    <Content Include="public\lib\layui\lay\modules\form.js" />
+    <Content Include="public\lib\layui\lay\modules\jquery.js" />
+    <Content Include="public\lib\layui\lay\modules\laydate.js" />
+    <Content Include="public\lib\layui\lay\modules\layedit.js" />
+    <Content Include="public\lib\layui\lay\modules\layer.js" />
+    <Content Include="public\lib\layui\lay\modules\laypage.js" />
+    <Content Include="public\lib\layui\lay\modules\laytpl.js" />
+    <Content Include="public\lib\layui\lay\modules\mobile.js" />
+    <Content Include="public\lib\layui\lay\modules\rate.js" />
+    <Content Include="public\lib\layui\lay\modules\slider.js" />
+    <Content Include="public\lib\layui\lay\modules\table.js" />
+    <Content Include="public\lib\layui\lay\modules\tree.js" />
+    <Content Include="public\lib\layui\lay\modules\upload.js" />
+    <Content Include="public\lib\layui\lay\modules\util.js" />
+    <Content Include="routes\adminroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\admin_addroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\admin_delroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\admin_updateroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\analyzeroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\basic_information2routes.js" />
+    <Content Include="routes\basic_informationroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\basic_information_update2routes.js" />
+    <Content Include="routes\calendarroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\book_addroutes.js" />
+    <Content Include="routes\calendar_addroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\book_delroutes.js" />
+    <Content Include="routes\calendar_delroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\book_finishroutes.js" />
+    <Content Include="routes\calendar_finishroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\basic_information_updateroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\book_updateroutes.js" />
+    <Content Include="routes\calendar_updateroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\data2routes.js" />
+    <Content Include="routes\dataroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\data_addroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\data_delroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\data_update2routes.js" />
+    <Content Include="routes\data_updateroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\diaryroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\diary_addroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\diary_delroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\diary_updateroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\encrypt.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\file_uploadroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\bookroutes.js" />
+    <Content Include="routes\timetable_updateroutes.js" />
+    <Content Include="routes\timetable_delroutes.js" />
+    <Content Include="routes\timetable_addroutes.js" />
+    <Content Include="routes\timetableroutes.js" />
+    <Content Include="routes\people_updateroutes.js" />
+    <Content Include="routes\people_delroutes.js" />
+    <Content Include="routes\people_addroutes.js" />
+    <Content Include="routes\peopleroutes.js" />
+    <Content Include="routes\memberroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\member_addroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\member_delroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\member_updateroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\roleroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\role_addroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\role_delroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\role_updateroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\uploadroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\wealthroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\wealth_addroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\wealth_delroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\wealth_updateroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\welcome2routes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\welcomeroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\admin.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\admin_add.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\admin_del.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\admin_update.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\analyze.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\basic_information2.js" />
+    <Content Include="scripts\basic_information.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\basic_information_update2.js" />
+    <Content Include="scripts\book.js" />
+    <Content Include="scripts\calendar.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\book_add.js" />
+    <Content Include="scripts\calendar_add.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\book_del.js" />
+    <Content Include="scripts\calendar_del.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\book_finish.js" />
+    <Content Include="scripts\calendar_finish.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\book_update.js" />
+    <Content Include="scripts\calendar_update.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\data2.js" />
+    <Content Include="scripts\data.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\data_add.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\data_update2.js" />
+    <Content Include="scripts\data_update.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\diary.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\diary_add.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\diary_del.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\diary_update.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\data_del.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\file_download.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\file_upload.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\img.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\timetable_update.js" />
+    <Content Include="scripts\timetable_del.js" />
+    <Content Include="scripts\timetable_add.js" />
+    <Content Include="scripts\timetable.js" />
+    <Content Include="scripts\people_update.js" />
+    <Content Include="scripts\people_del.js" />
+    <Content Include="scripts\people_add.js" />
+    <Content Include="scripts\people.js" />
+    <Content Include="views\book.html" />
+    <Content Include="views\book_add.html" />
+    <Content Include="views\book_update.html" />
+    <Content Include="views\register.html" />
+    <Content Include="views\timetable_update.html" />
+    <Content Include="views\timetable_add.html" />
+    <Content Include="views\timetable.html" />
+    <Content Include="views\people_update.html" />
+    <Content Include="views\people_add.html" />
+    <Content Include="views\people.html" />
+    <Content Include="views\upload.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\login.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\member.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\member_add.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\member_del.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\member_update.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\register.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\css\post.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\ueditor\dialogs\anchor\anchor.html" />
+    <Content Include="public\ueditor\dialogs\attachment\attachment.css" />
+    <Content Include="public\ueditor\dialogs\attachment\attachment.html" />
+    <Content Include="public\ueditor\dialogs\attachment\attachment.js" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_chm.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_default.png" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_doc.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_exe.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_jpg.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_mv.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_psd.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_rar.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_txt.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\fileTypeImages\icon_xls.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\images\alignicon.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\images\alignicon.png" />
+    <Content Include="public\ueditor\dialogs\attachment\images\bg.png" />
+    <Content Include="public\ueditor\dialogs\attachment\images\file-icons.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\images\file-icons.png" />
+    <Content Include="public\ueditor\dialogs\attachment\images\icons.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\images\icons.png" />
+    <Content Include="public\ueditor\dialogs\attachment\images\image.png" />
+    <Content Include="public\ueditor\dialogs\attachment\images\progress.png" />
+    <Content Include="public\ueditor\dialogs\attachment\images\success.gif" />
+    <Content Include="public\ueditor\dialogs\attachment\images\success.png" />
+    <Content Include="public\ueditor\dialogs\background\background.css" />
+    <Content Include="public\ueditor\dialogs\background\background.html" />
+    <Content Include="public\ueditor\dialogs\background\background.js" />
+    <Content Include="public\ueditor\dialogs\background\images\bg.png" />
+    <Content Include="public\ueditor\dialogs\background\images\success.png" />
+    <Content Include="public\ueditor\dialogs\charts\chart.config.js" />
+    <Content Include="public\ueditor\dialogs\charts\charts.css" />
+    <Content Include="public\ueditor\dialogs\charts\charts.html" />
+    <Content Include="public\ueditor\dialogs\charts\charts.js" />
+    <Content Include="public\ueditor\dialogs\charts\images\charts0.png" />
+    <Content Include="public\ueditor\dialogs\charts\images\charts1.png" />
+    <Content Include="public\ueditor\dialogs\charts\images\charts2.png" />
+    <Content Include="public\ueditor\dialogs\charts\images\charts3.png" />
+    <Content Include="public\ueditor\dialogs\charts\images\charts4.png" />
+    <Content Include="public\ueditor\dialogs\charts\images\charts5.png" />
+    <Content Include="public\ueditor\dialogs\emotion\emotion.css" />
+    <Content Include="public\ueditor\dialogs\emotion\emotion.html" />
+    <Content Include="public\ueditor\dialogs\emotion\emotion.js" />
+    <Content Include="public\ueditor\dialogs\emotion\images\0.gif" />
+    <Content Include="public\ueditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="public\ueditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="public\ueditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="public\ueditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="public\ueditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="public\ueditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="public\ueditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="public\ueditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="public\ueditor\dialogs\gmap\gmap.html" />
+    <Content Include="public\ueditor\dialogs\help\help.css" />
+    <Content Include="public\ueditor\dialogs\help\help.html" />
+    <Content Include="public\ueditor\dialogs\help\help.js" />
+    <Content Include="public\ueditor\dialogs\image\image.css" />
+    <Content Include="public\ueditor\dialogs\image\image.html" />
+    <Content Include="public\ueditor\dialogs\image\image.js" />
+    <Content Include="public\ueditor\dialogs\image\images\alignicon.jpg" />
+    <Content Include="public\ueditor\dialogs\image\images\bg.png" />
+    <Content Include="public\ueditor\dialogs\image\images\icons.gif" />
+    <Content Include="public\ueditor\dialogs\image\images\icons.png" />
+    <Content Include="public\ueditor\dialogs\image\images\image.png" />
+    <Content Include="public\ueditor\dialogs\image\images\progress.png" />
+    <Content Include="public\ueditor\dialogs\image\images\success.gif" />
+    <Content Include="public\ueditor\dialogs\image\images\success.png" />
+    <Content Include="public\ueditor\dialogs\insertframe\insertframe.html" />
+    <Content Include="public\ueditor\dialogs\internal.js" />
+    <Content Include="public\ueditor\dialogs\link\link.html" />
+    <Content Include="public\ueditor\dialogs\map\map.html" />
+    <Content Include="public\ueditor\dialogs\map\show.html" />
+    <Content Include="public\ueditor\dialogs\music\music.css" />
+    <Content Include="public\ueditor\dialogs\music\music.html" />
+    <Content Include="public\ueditor\dialogs\music\music.js" />
+    <Content Include="public\ueditor\dialogs\preview\preview.html" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\addimg.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\brush.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\delimg.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\delimgH.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\empty.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\emptyH.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\eraser.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\redo.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\redoH.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\scale.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\scaleH.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\size.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\undo.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\images\undoH.png" />
+    <Content Include="public\ueditor\dialogs\scrawl\scrawl.css" />
+    <Content Include="public\ueditor\dialogs\scrawl\scrawl.html" />
+    <Content Include="public\ueditor\dialogs\scrawl\scrawl.js" />
+    <Content Include="public\ueditor\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="public\ueditor\dialogs\searchreplace\searchreplace.js" />
+    <Content Include="public\ueditor\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="public\ueditor\dialogs\spechars\spechars.html" />
+    <Content Include="public\ueditor\dialogs\spechars\spechars.js" />
+    <Content Include="public\ueditor\dialogs\table\dragicon.png" />
+    <Content Include="public\ueditor\dialogs\table\edittable.css" />
+    <Content Include="public\ueditor\dialogs\table\edittable.html" />
+    <Content Include="public\ueditor\dialogs\table\edittable.js" />
+    <Content Include="public\ueditor\dialogs\table\edittd.html" />
+    <Content Include="public\ueditor\dialogs\table\edittip.html" />
+    <Content Include="public\ueditor\dialogs\template\config.js" />
+    <Content Include="public\ueditor\dialogs\template\images\bg.gif" />
+    <Content Include="public\ueditor\dialogs\template\images\pre0.png" />
+    <Content Include="public\ueditor\dialogs\template\images\pre1.png" />
+    <Content Include="public\ueditor\dialogs\template\images\pre2.png" />
+    <Content Include="public\ueditor\dialogs\template\images\pre3.png" />
+    <Content Include="public\ueditor\dialogs\template\images\pre4.png" />
+    <Content Include="public\ueditor\dialogs\template\template.css" />
+    <Content Include="public\ueditor\dialogs\template\template.html" />
+    <Content Include="public\ueditor\dialogs\template\template.js" />
+    <Content Include="public\ueditor\dialogs\video\images\bg.png" />
+    <Content Include="public\ueditor\dialogs\video\images\center_focus.jpg" />
+    <Content Include="public\ueditor\dialogs\video\images\file-icons.gif" />
+    <Content Include="public\ueditor\dialogs\video\images\file-icons.png" />
+    <Content Include="public\ueditor\dialogs\video\images\icons.gif" />
+    <Content Include="public\ueditor\dialogs\video\images\icons.png" />
+    <Content Include="public\ueditor\dialogs\video\images\image.png" />
+    <Content Include="public\ueditor\dialogs\video\images\left_focus.jpg" />
+    <Content Include="public\ueditor\dialogs\video\images\none_focus.jpg" />
+    <Content Include="public\ueditor\dialogs\video\images\progress.png" />
+    <Content Include="public\ueditor\dialogs\video\images\right_focus.jpg" />
+    <Content Include="public\ueditor\dialogs\video\images\success.gif" />
+    <Content Include="public\ueditor\dialogs\video\images\success.png" />
+    <Content Include="public\ueditor\dialogs\video\video.css" />
+    <Content Include="public\ueditor\dialogs\video\video.html" />
+    <Content Include="public\ueditor\dialogs\video\video.js" />
+    <Content Include="public\ueditor\dialogs\webapp\webapp.html" />
+    <Content Include="public\ueditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="public\ueditor\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="public\ueditor\dialogs\wordimage\tangram.js" />
+    <Content Include="public\ueditor\dialogs\wordimage\wordimage.html" />
+    <Content Include="public\ueditor\dialogs\wordimage\wordimage.js" />
+    <Content Include="public\ueditor\index.html" />
+    <Content Include="public\ueditor\lang\en\en.js" />
+    <Content Include="public\ueditor\lang\en\images\addimage.png" />
+    <Content Include="public\ueditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="public\ueditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="public\ueditor\lang\en\images\background.png" />
+    <Content Include="public\ueditor\lang\en\images\button.png" />
+    <Content Include="public\ueditor\lang\en\images\copy.png" />
+    <Content Include="public\ueditor\lang\en\images\deletedisable.png" />
+    <Content Include="public\ueditor\lang\en\images\deleteenable.png" />
+    <Content Include="public\ueditor\lang\en\images\listbackground.png" />
+    <Content Include="public\ueditor\lang\en\images\localimage.png" />
+    <Content Include="public\ueditor\lang\en\images\music.png" />
+    <Content Include="public\ueditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="public\ueditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="public\ueditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="public\ueditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="public\ueditor\lang\en\images\upload.png" />
+    <Content Include="public\ueditor\lang\zh-cn\images\copy.png" />
+    <Content Include="public\ueditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="public\ueditor\lang\zh-cn\images\music.png" />
+    <Content Include="public\ueditor\lang\zh-cn\images\upload.png" />
+    <Content Include="public\ueditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="public\ueditor\php\action_crawler.php" />
+    <Content Include="public\ueditor\php\action_list.php" />
+    <Content Include="public\ueditor\php\action_upload.php" />
+    <Content Include="public\ueditor\php\config.json" />
+    <Content Include="public\ueditor\php\controller.php" />
+    <Content Include="public\ueditor\php\Uploader.class.php" />
+    <Content Include="public\ueditor\themes\default\css\ueditor.css" />
+    <Content Include="public\ueditor\themes\default\css\ueditor.min.css" />
+    <Content Include="public\ueditor\themes\default\dialogbase.css" />
+    <Content Include="public\ueditor\themes\default\images\anchor.gif" />
+    <Content Include="public\ueditor\themes\default\images\arrow.png" />
+    <Content Include="public\ueditor\themes\default\images\arrow_down.png" />
+    <Content Include="public\ueditor\themes\default\images\arrow_up.png" />
+    <Content Include="public\ueditor\themes\default\images\button-bg.gif" />
+    <Content Include="public\ueditor\themes\default\images\cancelbutton.gif" />
+    <Content Include="public\ueditor\themes\default\images\charts.png" />
+    <Content Include="public\ueditor\themes\default\images\cursor_h.gif" />
+    <Content Include="public\ueditor\themes\default\images\cursor_h.png" />
+    <Content Include="public\ueditor\themes\default\images\cursor_v.gif" />
+    <Content Include="public\ueditor\themes\default\images\cursor_v.png" />
+    <Content Include="public\ueditor\themes\default\images\dialog-title-bg.png" />
+    <Content Include="public\ueditor\themes\default\images\filescan.png" />
+    <Content Include="public\ueditor\themes\default\images\highlighted.gif" />
+    <Content Include="public\ueditor\themes\default\images\icons-all.gif" />
+    <Content Include="public\ueditor\themes\default\images\icons.gif" />
+    <Content Include="public\ueditor\themes\default\images\icons.png" />
+    <Content Include="public\ueditor\themes\default\images\loaderror.png" />
+    <Content Include="public\ueditor\themes\default\images\loading.gif" />
+    <Content Include="public\ueditor\themes\default\images\lock.gif" />
+    <Content Include="public\ueditor\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="public\ueditor\themes\default\images\pagebreak.gif" />
+    <Content Include="public\ueditor\themes\default\images\scale.png" />
+    <Content Include="public\ueditor\themes\default\images\sortable.png" />
+    <Content Include="public\ueditor\themes\default\images\spacer.gif" />
+    <Content Include="public\ueditor\themes\default\images\sparator_v.png" />
+    <Content Include="public\ueditor\themes\default\images\table-cell-align.png" />
+    <Content Include="public\ueditor\themes\default\images\tangram-colorpicker.png" />
+    <Content Include="public\ueditor\themes\default\images\toolbar_bg.png" />
+    <Content Include="public\ueditor\themes\default\images\unhighlighted.gif" />
+    <Content Include="public\ueditor\themes\default\images\upload.png" />
+    <Content Include="public\ueditor\themes\default\images\videologo.gif" />
+    <Content Include="public\ueditor\themes\default\images\word.gif" />
+    <Content Include="public\ueditor\themes\default\images\wordpaste.png" />
+    <Content Include="public\ueditor\themes\iframe.css" />
+    <Content Include="public\ueditor\third-party\codemirror\codemirror.css" />
+    <Content Include="public\ueditor\third-party\codemirror\codemirror.js" />
+    <Content Include="public\ueditor\third-party\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="public\ueditor\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="public\ueditor\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\adapters\standalone-framework.js" />
+    <Content Include="public\ueditor\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\highcharts-more.js" />
+    <Content Include="public\ueditor\third-party\highcharts\highcharts-more.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\highcharts.js" />
+    <Content Include="public\ueditor\third-party\highcharts\highcharts.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\annotations.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\annotations.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\canvas-tools.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\data.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\data.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\drilldown.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\drilldown.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\exporting.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\exporting.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\funnel.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\funnel.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\heatmap.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\heatmap.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\map.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\map.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\no-data-to-display.js" />
+    <Content Include="public\ueditor\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="public\ueditor\third-party\highcharts\themes\dark-blue.js" />
+    <Content Include="public\ueditor\third-party\highcharts\themes\dark-green.js" />
+    <Content Include="public\ueditor\third-party\highcharts\themes\gray.js" />
+    <Content Include="public\ueditor\third-party\highcharts\themes\grid.js" />
+    <Content Include="public\ueditor\third-party\highcharts\themes\skies.js" />
+    <Content Include="public\ueditor\third-party\jquery-1.10.2.js" />
+    <Content Include="public\ueditor\third-party\jquery-1.10.2.min.js" />
+    <Content Include="public\ueditor\third-party\jquery-1.10.2.min.map" />
+    <Content Include="public\ueditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="public\ueditor\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="public\ueditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="public\ueditor\third-party\video-js\font\vjs.eot" />
+    <Content Include="public\ueditor\third-party\video-js\font\vjs.svg" />
+    <Content Include="public\ueditor\third-party\video-js\font\vjs.ttf" />
+    <Content Include="public\ueditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="public\ueditor\third-party\video-js\video-js.css" />
+    <Content Include="public\ueditor\third-party\video-js\video-js.min.css" />
+    <Content Include="public\ueditor\third-party\video-js\video-js.swf" />
+    <Content Include="public\ueditor\third-party\video-js\video.dev.js" />
+    <Content Include="public\ueditor\third-party\video-js\video.js" />
+    <Content Include="public\ueditor\third-party\webuploader\Uploader.swf" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.css" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.custom.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.custom.min.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.flashonly.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.flashonly.min.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.html5only.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.html5only.min.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.min.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.withoutimage.js" />
+    <Content Include="public\ueditor\third-party\webuploader\webuploader.withoutimage.min.js" />
+    <Content Include="public\ueditor\third-party\zeroclipboard\ZeroClipboard.js" />
+    <Content Include="public\ueditor\third-party\zeroclipboard\ZeroClipboard.min.js" />
+    <Content Include="public\ueditor\third-party\zeroclipboard\ZeroClipboard.swf" />
+    <Content Include="public\ueditor\ueditor.all.js" />
+    <Content Include="public\ueditor\ueditor.all.min.js" />
+    <Content Include="public\ueditor\ueditor.config.js" />
+    <Content Include="public\ueditor\ueditor.parse.js" />
+    <Content Include="public\ueditor\ueditor.parse.min.js" />
+    <Content Include="routes\loginroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\registerroutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\basic_information_update.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\role.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\role_add.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\role_del.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\role_update.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\wealth.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\wealth_add.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\wealth_del.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\wealth_update.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\welcome.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\welcome2.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views2\basic_information2.html" />
+    <Content Include="views2\data_update2.html" />
+    <Content Include="views2\index2.html" />
+    <Content Include="views2\welcome2.html" />
+    <Content Include="views\admin_add.html" />
+    <Content Include="views2\data2.html" />
+    <Content Include="views\data_add.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\data_update.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\error.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\permission.html" />
+    <Content Include="views\admin_update.html" />
+    <Content Include="views\admin.html" />
+    <Content Include="views\role.html" />
+    <Content Include="views\calendar_add.html" />
+    <Content Include="views\calendar_update.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\diary.html" />
+    <Content Include="views\diary_add.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\diary_update.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\email.html" />
+    <Content Include="server.js" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="views\404.html" />
+    <Content Include="views\index.html" />
+    <Content Include="views\data.html" />
+    <Content Include="views\log.html" />
+    <Content Include="views\login.html" />
+    <Content Include="views\member_add.html" />
+    <Content Include="views\member_update.html" />
+    <Content Include="views\member.html" />
+    <Content Include="views\calendar.html" />
+    <Content Include="views\basic_information.html" />
+    <Content Include="views\role_add.html" />
+    <Content Include="views\role_update.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\sys-set.html" />
+    <Content Include="views\sys-shild.html" />
+    <Content Include="views\wealth.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\wealth_add.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\wealth_update.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\analyze.html" />
+    <Content Include="views\welcome.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="views2\" />
+    <Folder Include="public\fonts\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\lib\" />
+    <Folder Include="public\lib\layui\" />
+    <Folder Include="public\lib\layui\css\" />
+    <Folder Include="public\lib\layui\css\modules\" />
+    <Folder Include="public\lib\layui\css\modules\laydate\" />
+    <Folder Include="public\lib\layui\css\modules\laydate\default\" />
+    <Folder Include="public\lib\layui\css\modules\layer\" />
+    <Folder Include="public\lib\layui\css\modules\layer\default\" />
+    <Folder Include="public\lib\layui\font\" />
+    <Folder Include="public\lib\layui\images\" />
+    <Folder Include="public\lib\layui\images\face\" />
+    <Folder Include="public\lib\layui\lay\" />
+    <Folder Include="public\lib\layui\lay\modules\" />
+    <Folder Include="public\ueditor\" />
+    <Folder Include="public\ueditor\dialogs\" />
+    <Folder Include="public\ueditor\dialogs\anchor\" />
+    <Folder Include="public\ueditor\dialogs\attachment\" />
+    <Folder Include="public\ueditor\dialogs\attachment\fileTypeImages\" />
+    <Folder Include="public\ueditor\dialogs\attachment\images\" />
+    <Folder Include="public\ueditor\dialogs\background\" />
+    <Folder Include="public\ueditor\dialogs\background\images\" />
+    <Folder Include="public\ueditor\dialogs\charts\" />
+    <Folder Include="public\ueditor\dialogs\charts\images\" />
+    <Folder Include="public\ueditor\dialogs\emotion\" />
+    <Folder Include="public\ueditor\dialogs\emotion\images\" />
+    <Folder Include="public\ueditor\dialogs\gmap\" />
+    <Folder Include="public\ueditor\dialogs\help\" />
+    <Folder Include="public\ueditor\dialogs\image\" />
+    <Folder Include="public\ueditor\dialogs\image\images\" />
+    <Folder Include="public\ueditor\dialogs\insertframe\" />
+    <Folder Include="public\ueditor\dialogs\link\" />
+    <Folder Include="public\ueditor\dialogs\map\" />
+    <Folder Include="public\ueditor\dialogs\music\" />
+    <Folder Include="public\ueditor\dialogs\preview\" />
+    <Folder Include="public\ueditor\dialogs\scrawl\" />
+    <Folder Include="public\ueditor\dialogs\scrawl\images\" />
+    <Folder Include="public\ueditor\dialogs\searchreplace\" />
+    <Folder Include="public\ueditor\dialogs\snapscreen\" />
+    <Folder Include="public\ueditor\dialogs\spechars\" />
+    <Folder Include="public\ueditor\dialogs\table\" />
+    <Folder Include="public\ueditor\dialogs\template\" />
+    <Folder Include="public\ueditor\dialogs\template\images\" />
+    <Folder Include="public\ueditor\dialogs\video\" />
+    <Folder Include="public\ueditor\dialogs\video\images\" />
+    <Folder Include="public\ueditor\dialogs\webapp\" />
+    <Folder Include="public\ueditor\dialogs\wordimage\" />
+    <Folder Include="public\ueditor\lang\" />
+    <Folder Include="public\ueditor\lang\en\" />
+    <Folder Include="public\ueditor\lang\en\images\" />
+    <Folder Include="public\ueditor\lang\zh-cn\" />
+    <Folder Include="public\ueditor\lang\zh-cn\images\" />
+    <Folder Include="public\ueditor\php\" />
+    <Folder Include="public\ueditor\themes\" />
+    <Folder Include="public\ueditor\themes\default\" />
+    <Folder Include="public\ueditor\themes\default\css\" />
+    <Folder Include="public\ueditor\themes\default\images\" />
+    <Folder Include="public\ueditor\third-party\" />
+    <Folder Include="public\ueditor\third-party\codemirror\" />
+    <Folder Include="public\ueditor\third-party\highcharts\" />
+    <Folder Include="public\ueditor\third-party\highcharts\adapters\" />
+    <Folder Include="public\ueditor\third-party\highcharts\modules\" />
+    <Folder Include="public\ueditor\third-party\highcharts\themes\" />
+    <Folder Include="public\ueditor\third-party\snapscreen\" />
+    <Folder Include="public\ueditor\third-party\SyntaxHighlighter\" />
+    <Folder Include="public\ueditor\third-party\video-js\" />
+    <Folder Include="public\ueditor\third-party\video-js\font\" />
+    <Folder Include="public\ueditor\third-party\webuploader\" />
+    <Folder Include="public\ueditor\third-party\zeroclipboard\" />
+    <Folder Include="routes\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\" />
+    <Folder Include="scripts\" />
+    <Folder Include="views\" />
+    <Folder Include="public\css\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

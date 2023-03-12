@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        个人信息
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/css/index.css" media="all">
+    <link rel="stylesheet" href="/css/img.css" media="all">
+
+    <script src="/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/echarts.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/basic_information.js"></script>
+    <script type="text/javascript" src="/basic_information_update.js"></script>
+
+    <link href="/css/fileinput.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script src="/js/fileinput.min.js"></script>
+    <script src="/js/zh.js"></script>
+</head>
+<body onload="basic_information();">
+
+    <div class="tx ovf">
+        <div class="tit">头像</div>
+        <div class="ovf tx-img">
+            <img src="/images/头像.jpg" alt="">
+            <div class="upload-b"><span>修改头像</span><input type="file" class="upload1" id="file"></div>
+        </div>
+    </div>
+
+    <div class="x-body">
+        <form class="layui-form layui-form-pane" action="" id="add">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>姓名
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="x1" name="name" autocomplete="off" placeholder="空制在80个汉字，160个字符以内"
+                                   class="layui-input" value="">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>年龄
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="x2" name="name" autocomplete="off" placeholder="空制在80个汉字，160个字符以内"
+                                   class="layui-input" value="">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>用户名
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="x3" name="name" autocomplete="off" placeholder="空制在80个汉字，160个字符以内"
+                                   class="layui-input" value="">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>密码
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="x4" name="name" autocomplete="off" placeholder="空制在80个汉字，160个字符以内"
+                                   class="layui-input" value="">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>电话号码
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="x5" name="phone" autocomplete="off" placeholder=""
+                                   class="layui-input" value="">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>权限
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="x6" name="phone" autocomplete="off" placeholder=""
+                                   class="layui-input" value="">
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <input type="button" value="保存" onclick="basic_information_update()" class="layui-btn">
+                    </div>
+                    <!--</form>-->
+                    <div style="height:100px;"></div>
+                </div>
+
+
+
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $(".upload1").change(function () {
+            var file = this.files[0];
+            readFile(file);
+        });
+        function readFile(file) {
+            // 新建阅读器
+            var reader = new FileReader();
+            // 根据文件类型选择阅读方式
+            switch (file.type) {
+                case 'image/jpg':
+                case 'image/png':
+                case 'image/jpeg':
+                case 'image/gif':
+                    reader.readAsDataURL(file);
+                    break;
+            }
+            // 当文件阅读结束后执行的方法
+
+                let a = document.createElement("a");
+                a.setAttribute("href", URL.createObjectURL(file));
+                a.setAttribute("download", file.name);  //file1.name文件的名字
+                a.click();
+
+            reader.addEventListener('load', function () {
+                // 如果说让读取的文件显示的话 还是需要通过文件的类型创建不同的标签
+                switch (file.type) {
+                    case 'image/jpg':
+                    case 'image/png':
+                    case 'image/jpeg':
+                    case 'image/gif':
+                        console.log(reader.result);
+                        $(".tx-img img").attr("src", reader.result);
+                        break;
+                }
+            });
+        }
+        /*var http = function (option) {
+            // 过滤请求成功后的响应对象
+            function getBody(xhr) {
+                var text = xhr.responseText || xhr.response
+                if (!text) {
+                    return text
+                }
+
+                try {
+                    return JSON.parse(text)
+                } catch (err) {
+                    return text
+                }
+            }
+
+            var xhr = new XMLHttpRequest();
+            // 自定义 beforeSend 函数
+            if (option.beforeSend instanceof Function) {
+                if (option.beforeSend(xhr) === false) {
+                    return false
+                }
+            }
+
+            xhr.onreadystatechange = function () {
+                if (xhr.status === 200) {
+                    if (xhr.readyState === 4) {
+                        // 成功回调
+                        option.onSuccess(getBody(xhr))
+                    }
+                }
+            }
+
+            // 请求失败
+            xhr.onerror = function (err) {
+                option.onError(err)
+            }
+
+            xhr.open(option.type, option.url, true)
+
+            // 当请求为上传文件时回调上传进度
+            if (xhr.upload) {
+                xhr.upload.onprogress = function (event) {
+                    if (event.total > 0) {
+                        event.percent = event.loaded / event.total * 100;
+                    }
+                    // 监控上传进度回调
+                    if (option.onProgress instanceof Function) {
+                        option.onProgress(event)
+                    }
+                }
+            }
+
+            // 自定义头部
+            const headers = option.headers || {}
+            for (var item in headers) {
+                xhr.setRequestHeader(item, headers[item])
+            }
+
+            xhr.send(option.data)
+        }
+
+        // 测试接口
+        document.getElementById('file').onchange = function () {
+            var fileList = this.files, formData = new FormData();
+            Array.prototype.forEach.call(fileList, function (file) {
+                formData.append(file.name, file)
+            })
+            // 当上传的数据为 file 类型时，请求的格式类型自动会变为 multipart/form-data, 如果头部格式有特定需求，在我的 http 函数中传入 headers<Object> 即可，大家可自己查看，我这里没有什么特殊处理所以就不传了
+            http({
+                type: 'POST',
+                url: '/upload',
+                data: formData,
+                onProgress: function (event) {
+                    console.log(event.percent)
+                    document.querySelector('.progress span').style.width = event.percent + '%';
+                },
+                onSuccess: function (data) {
+                    console.log('上传成功')
+                },
+                onError: function (err) {
+                    alert(err)
+                }
+            })
+        }
+        /*$('#file').fileinput({
+            language: 'zh',     //设置语言
+            dropZoneEnabled: true,      //是否显示拖拽区域
+            dropZoneTitle: "可以将图片拖放到这里",    //拖拽区域显示文字
+            uploadUrl: '/scripts/img_upload',  //上传路径
+            allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg'],   //指定上传文件类型
+            maxFileSize: 0,
+            maxFileSize: 2048,   //上传文件最大值，单位kb
+            uploadAsync: true,  //异步上传
+            maxFileCount: 2    //上传文件最大个数。
+        }).on("fileuploaded", function (event, data) { //异步上传成功后回调
+            console.log(data);		//data为返回的数据
+        });
+        /*
+        var EmImg = ""; //定义初始头像  我这里定义为空
+
+        //初始化fileinput
+        var FileInput = function () {
+            var oFile = new Object();
+
+            //初始化fileinput控件（第一次初始化）
+            oFile.Init = function (ctrlName, uploadUrl) {
+                var control = $('#' + ctrlName);
+
+                //初始化上传控件的样式
+                control.fileinput({
+                    language: 'zh', //设置语言
+                    uploadUrl: uploadUrl, //上传的地址
+                    allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                    showUpload: true, //是否显示上传按钮
+                    showCaption: false,//是否显示标题
+                    browseClass: "btn btn-primary", //按钮样式
+                    //dropZoneEnabled: false,//是否显示拖拽区域
+                    //minImageWidth: 50, //图片的最小宽度
+                    //minImageHeight: 50,//图片的最小高度
+                    //maxImageWidth: 1000,//图片的最大宽度
+                    //maxImageHeight: 1000,//图片的最大高度
+                    //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+                    //minFileCount: 0,
+                    maxFileCount: 1, //表示允许同时上传的最大文件个数
+                    enctype: 'multipart/form-data',
+                    validateInitialCount: true,
+                    previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                    msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+                });
+
+                //导入文件上传完成之后的事件
+                $("#txt_file").on("fileuploaded", function (event, data, previewId, index) {
+
+                    var data = data.response;
+                    var last = data.lastIndexOf("Upload");
+                    EmImg = data.substring(last + 7);
+                    //document.getElementById('videoForm').outerHtml = document.getElementById('videoForm').outerHtml;
+                    //document.getElementById("videoForm").reset();
+                    $("#Modal").modal('hide');
+                    $("#imgEmdImg").attr("src", "../FileUpload/Upload/" + EmImg);
+                    //alert(EmImg);
+                    //1.初始化表格
+                    //var oTable = new TableInit();
+                    //oTable.Init(data);
+                });
+            }
+            return oFile;
+        };
+        //上传头像
+        var oFileInput = new FileInput();
+        oFileInput.Init("txt_file", "/Employee/UploadFile");    //** 注意：这里是导入地址写好你的控制器  和方法名 **
+
+        //弹出添加图片模态
+        $("#btnImg").click(function () {
+            $("#Modal").modal("show");
+        });*/
+
+
+    </script>
+</body>
+</html>

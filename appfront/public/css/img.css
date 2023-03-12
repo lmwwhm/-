@@ -1,0 +1,51 @@
+﻿.ovf {
+    overflow: hidden;
+}
+
+.tit {
+    float: left;
+    width: 50px;
+    margin-top: 39px;
+    font-size: 0.9vw;
+    color: #999999;
+}
+
+.tx {
+    margin-top: 11px;
+}
+
+    .tx img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        margin-right: 30px;
+        border: 1px solid #fca89d;
+    }
+
+    .tx span {
+        border: solid 1px #fca89d;
+        color: #fca89d;
+        font-size: 16px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+.upload1 {
+    position: absolute;
+    right: 0;
+}
+
+.tx img {
+    float: left;
+}
+
+.tx input {
+    width: 86%;
+    opacity: 0;
+}
+
+.upload-b {
+    float: left;
+    margin-top: 36px;
+    position: relative;
+}

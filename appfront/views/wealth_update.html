@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        修改
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    <script src="/ueditor/ueditor.config.js"></script>
+    <script src="/ueditor/ueditor.all.min.js"></script>
+    <script src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" src="/wealth_update.js"></script>
+</head>
+<body onload="wea_update()">
+
+    <div class="layui-card">
+        <form class="layui-form layui-form-pane" action="" id="update">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">基本信息</li>
+                </ul>
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <!--<form class="layui-form layui-form-pane" action="" id="add">-->
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <span class='x-red'>*</span>收入
+                            </label>
+                            <div class="layui-inline layui-show-xs-block">
+                                <input type="text" class="layui-input" id="inwealth" autocomplete="off" placeholder="收入">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <span class='x-red'>*</span>支出
+                            </label>
+                            <div class="layui-inline layui-show-xs-block">
+                                <input type="text" class="layui-input" id="outwealth" autocomplete="off" placeholder="支出">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <span class='x-red'>*</span>时间
+                            </label>
+                            <div class="layui-inline layui-show-xs-block">
+                                <input type="datetime-local" class="layui-input" id="time" autocomplete="off" placeholder="时间">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <span class='x-red'>*</span>内容
+                            </label>
+                            <div class="layui-input-block">
+                                <input type="text" id="dowhat" autocomplete="off" value="" placeholder="空制在80个汉字，160个字符以内" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <span class='x-red'>*</span>类型
+                            </label>
+                            <div class="layui-input-block">
+                                <input type="text" id="类型" autocomplete="off" value="" placeholder="空制在80个汉字，160个字符以内" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <button class="layui-btn" lay-submit="" onclick="wealth_update()">
+                                确定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        //根据名称获得Cookie值
+        function ReadCookie(cookieName) {
+            var theCookie = "" + document.cookie;
+            var ind = theCookie.indexOf(cookieName);
+            if (ind == -1 || cookieName == "") {
+                return ""
+            };
+            var ind1 = theCookie.indexOf(';', ind);
+            if (ind1 == -1) {
+                ind1 = theCookie.length;
+            };
+            /*读取Cookie值*/
+            return unescape(theCookie.substring(ind + cookieName.length + 1, ind1));
+        }
+        function todatetime(x) {
+            //2022 / 12 / 6 6: 31: 39
+            var list = x.split('/');
+            var ans = "";
+            ans = ans + list[0];
+            if (list[1] < 10) list[1] = "0" + list[1];
+            ans = ans + "-" + list[1];
+
+            list = list[2].split(" ");
+            if (list[0] < 10) list[0] = "0" + list[0];
+            ans = ans + "-" + list[0] + "T";
+
+            list = list[1].split(":");
+            if (list[0] < 10) {
+                list[0] = "0" + list[0];
+                ans = ans + list[0] + ":";
+                ans = ans + list[1];
+            }
+            else {
+                ans = ans + list[0] + ":";
+                ans = ans + list[1];
+            }
+
+            return ans;
+        }
+        function wea_update() {
+            var inwealth = ReadCookie("inwealth");
+            var outwealth = ReadCookie("outwealth");
+            var time = ReadCookie("time");
+            var dowhat = ReadCookie("dowhat");
+            var 类型 = ReadCookie("类型");
+            time = todatetime(time);
+            document.getElementById("inwealth").value = inwealth;
+            document.getElementById("outwealth").value = outwealth;
+            document.getElementById("time").value = time;
+            document.getElementById("dowhat").value = dowhat;
+            document.getElementById("类型").value = 类型;
+        }
+    </script>
+</body>
+</html>

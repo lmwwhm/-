@@ -1,0 +1,19 @@
+{
+  "name": "appfront",
+  "version": "0.0.0",
+  "description": "appfront",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

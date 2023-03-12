@@ -1,0 +1,3 @@
+D:\learn\database\data_base\appfront\obj\Debug\appfront.njsproj.AssemblyReference.cache
+D:\learn\database\data_base\appfront\obj\Debug\appfront.njsproj.CoreCompileInputs.cache
+D:\learn\database\data_base\appfront\bin\Microsoft.NodejsTools.WebRole.dll
